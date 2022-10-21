@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joga aí vai Desgraça</title>
+    <link rel="stylesheet" href="css/Questoes.css">
+</head>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #0E1538;
+}
+
+/* Header */
+
+header #Menu{
+    width: 35px;
+    height: 30px;
+    margin: 30px 0px 20px 20px;
+    cursor: pointer;
+}
+
+header .Barra{
+    height: 5px;
+    width: 100%;
+    background-color: #FFF;
+    display: block;
+    border-radius: 5px;
+    transition: 0.5s ease;
+    z-index: 10;
+}
+
+header  #Barra-1{
+    transform: translateY(-4px);
+}
+
+header #Barra-3{
+    transform: translateY(4px);
+}
+
+header #Barra-Menu{
+    z-index: 9999;
+}
+
+
+header .Mudar .Barra{
+    background-color: #FFF;
+}
+
+header .Mudar #Barra-1{
+    transform: translateY(4px) rotateZ(-45deg);
+}
+
+header .Mudar #Barra-3{
+    transform: translateY(-6px) rotate(45deg);
+}
+
+header .Mudar #Barra-2{
+    opacity: 0;
+}
+
+header .Mudar{
+    display: block;
+}
+
+header .Voltar{
+    display: none;
+}
+
+header .Regras{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: #0E1538;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    border: 2px solid #FFF;
+    border-radius: 20px;
+    width: 100px;
+    height: 100px;
+    margin: -60px 0 0 80px;
+}
+
+header .Regras a{
+    list-style: none;
+    text-decoration: none;
+    color: #FFF;
+}
+
+/* Main */
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 30vh;
+}
+
+.Questao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.Questao h1{
+    color: #FFF;
+    font-size: 1.5em;
+    text-align: center;
+    margin: 30px 45px 45px 45px;
+}
+
+.Questao h2{
+    margin: 10px 0px 30px 0px;
+    color: #FFF;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.Resposta{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.Resposta a{
+    list-style: none;
+    text-decoration: none;
+    color: #FFF;
+    border: 2px solid #FFF;
+    margin-top: 20px;
+    padding: 30px;
+    border-radius: 20px;
+    font-size: 1em;
+}
+
+.Resposta a:active{
+    color: #0E1538;
+    background: #FFF;
+    transition: 1s ease;
+    transform: scale(1);
+}
+
+</style>
+<body>
+    <header>
+        <div id="Barra-Menu">
+            <div id="Menu" onclick="onClickMenu()">
+                <div id="Barra-1" class="Barra"></div>
+                <div id="Barra-2" class="Barra"></div>
+                <div id="Barra-3" class="Barra"></div>
+            </div>
+        </div>
+
+        <div id="Regras" class="Regras">
+            <a href="Regras.html">Regras</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="Questao">
+
+
+            <h2 style="margin: 40px;">O Matheus é o melhor de todos os tempos em duas coisas. Quais são elas?</h2>
+        </div>
+
+        <div class="Resposta">
+            <a href="Errou.html">Falar Merda e dar Risada</a>
+            <a href="Questao3.html">Vôlei e UNO</a>
+            <a href="Errou.html">Sexo e Conversar</a>
+            <a href="Errou.html">Elogiar o Ney e Programinha</a>
+        </div>
+    </main>
+
+</body>
+<script src="js/Script.js"></script>
+<script>
+    var i = 0;
+        var Regras = document.getElementById("Regras");
+        
+        
+        function onClickMenu(){
+            if(i == 0){
+                document.getElementById("Menu").classList.add("Mudar");
+                Regras.style.display = "flex";
+                i++;
+            }
+            else{
+                document.getElementById("Menu").classList.remove("Mudar");
+                Regras.style.display = "none";
+                i++;
+                i = 0;
+            }
+        
+        }
+    </script>
+</html>

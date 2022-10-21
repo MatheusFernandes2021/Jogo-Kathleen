@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joga aí vai Desgraça</title>
+    <link rel="stylesheet" href="css/Style.css">
+</head>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #0E1538;
+    overflow-y: hidden;
+}
+
+/* Header */
+
+header #Menu{
+    width: 35px;
+    height: 30px;
+    margin: 30px 0px 20px 20px;
+    cursor: pointer;
+}
+
+header .Barra{
+    height: 5px;
+    width: 100%;
+    background-color: #FFF;
+    display: block;
+    border-radius: 5px;
+    transition: 0.5s ease;
+    z-index: 10;
+}
+
+header  #Barra-1{
+    transform: translateY(-4px);
+}
+
+header #Barra-3{
+    transform: translateY(4px);
+}
+
+header #Barra-Menu{
+    z-index: 9999;
+}
+
+
+header .Mudar .Barra{
+    background-color: #FFF;
+}
+
+header .Mudar #Barra-1{
+    transform: translateY(4px) rotateZ(-45deg);
+}
+
+header .Mudar #Barra-3{
+    transform: translateY(-6px) rotate(45deg);
+}
+
+header .Mudar #Barra-2{
+    opacity: 0;
+}
+
+header .Mudar{
+    display: block;
+}
+
+header .Voltar{
+    display: none;
+}
+
+header .Regras{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: #0E1538;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    border: 2px solid #FFF;
+    border-radius: 20px;
+    width: 100px;
+    height: 100px;
+    margin: -60px 0 0 80px;
+}
+
+header .Regras a{
+    list-style: none;
+    text-decoration: none;
+    color: #FFF;
+}
+
+/* Main */
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.Opcoes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    width: 200px;
+    height: 100px;
+    background: rgba(0,0,0,0.5);
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.Opcoes::before{
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 200%;
+    background: linear-gradient(#00CCFF, #D400D4);
+    animation: animado 4s linear infinite;
+}
+
+.Opcoes::after{
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background: #0E1538;
+    border-radius: 16px;
+}
+
+@keyframes animado{
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(350deg);
+    }
+}
+
+.Opcoes button{
+    background: transparent;
+    color: #FFF;
+    font-size: 2em;
+    z-index: 10;
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+.Opcoes a{
+    text-decoration: none;
+    list-style: none;
+    color: #FFF;
+    width: 100%;
+    height: 100%;
+}
+
+footer{
+    display: flex;
+    padding: 33.81px;
+    background: #000;
+    opacity: 0.7;
+
+}
+
+footer p{
+    color: #FFF;
+    margin: 10px;
+    opacity: 1;
+    text-align: center;
+    font-size: 1.125em;
+}
+
+</style>
+<body>
+    <header>
+        <div id="Barra-Menu">
+            <div id="Menu" onclick="onClickMenu()">
+                <div id="Barra-1" class="Barra"></div>
+                <div id="Barra-2" class="Barra"></div>
+                <div id="Barra-3" class="Barra"></div>
+            </div>
+        </div>
+
+        <div id="Regras" class="Regras">
+            <a href="Regras.html">Regras</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="Opcoes">
+            <button>
+                <a href="Questao1.html">
+                    Jogar
+                </a>
+            </button>
+        </div>
+    </main>
+
+    <footer>
+        <p>Feito com muito carinho por Matheus (A melhor pessoa do mundo)
+    
+        </p>
+    </footer>
+</body>
+<script src="js/Script.js"></script>
+<script>
+    var i = 0;
+        var Regras = document.getElementById("Regras");
+        
+        
+        function onClickMenu(){
+            if(i == 0){
+                document.getElementById("Menu").classList.add("Mudar");
+                Regras.style.display = "flex";
+                i++;
+            }
+            else{
+                document.getElementById("Menu").classList.remove("Mudar");
+                Regras.style.display = "none";
+                i++;
+                i = 0;
+            }
+        
+        }
+    </script>
+</html>
